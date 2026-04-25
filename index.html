@@ -7,203 +7,894 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
     <style>
-        :root {
+:root {
             --brand-tan: #c4b5a2;
             --brand-dark: #1a1a1a;
             --brand-light: #faf9f6;
+            --brand-pink: #ec4899;
         }
+        .text-brand-pink { color: var(--brand-pink); }
+        .bg-brand-pink { background-color: var(--brand-pink); }
+        .border-brand-pink { border-color: var(--brand-pink); }
 body { font-family: &#39;Inter&#39;, sans-serif; background-color: var(--brand-light); color: var(--brand-dark); }
         h1, h2, h3, .serif { font-family: &#39;Playfair Display&#39;, serif; }
         .bg-brand-tan { background-color: var(--brand-tan); }
         .text-brand-tan { color: var(--brand-tan); }
         .border-brand-tan { border-color: var(--brand-tan); }
         .hero-overlay { background: rgba(0, 0, 0, 0.4); }
+
+        /* Luxury Services Theme */
+        :root {
+            --luxury-pink: #E86A7A;
+            --luxury-pink-light: #FDECEF;
+            --text-dark: #1A1A1A;
+            --text-gray: #6B7280;
+            --border-light: #F1F1F1;
+        }
+        .bg-luxury-pink { background-color: var(--luxury-pink); color: white; }
+        .bg-luxury-pink-light { background-color: var(--luxury-pink-light); }
+        .text-luxury-pink { color: var(--luxury-pink); }
+        .luxury-service-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        .luxury-service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08), 0 0 0 2px rgba(232,106,122,0.3);
+            border-color: #E86A7A;
+        }
+        /* Testimonials Styles */
+            .testimonial-badge {
+                background: var(--luxury-pink-light);
+                color: var(--luxury-pink);
+                padding: 6px 14px;
+                border-radius: 999px;
+                font-size: 13px;
+                font-weight: 500;
+                font-family: 'Inter', sans-serif;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                display: inline-block;
+            }
+            .testimonials-heading {
+                font-family: 'Playfair Display', serif;
+                font-size: 28px;
+                font-weight: 700;
+                color: var(--text-dark);
+                text-align: center;
+                margin-bottom: 12px;
+            }
+            .testimonials-subtext {
+                color: var(--text-gray);
+                font-size: 14px;
+                line-height: 1.6;
+                text-align: center;
+                max-width: 700px;
+                margin: 0 auto 32px;
+                font-family: 'Inter', sans-serif;
+            }
+            .testimonial-card {
+                background: #FFFFFF;
+                border: 1px solid var(--border-light);
+                border-radius: 14px;
+                padding: 20px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+                transition: all 0.3s ease;
+                min-height: 180px;
+                display: flex;
+                flex-direction: column;
+            }
+            .testimonial-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+                border-color: var(--luxury-pink);
+            }
+            .stars {
+                color: #F5B301;
+                font-size: 18px;
+                display: flex;
+                gap: 4px;
+                margin-bottom: 16px;
+                justify-content: center;
+            }
+            .testimonial-text {
+                font-style: italic;
+                color: #4B5563;
+                font-size: 16px;
+                line-height: 1.7;
+                margin-bottom: 20px;
+                flex-grow: 1;
+                font-family: 'Inter', sans-serif;
+            }
+            .testimonial-divider {
+                height: 1px;
+                background: var(--border-light);
+                margin: 20px 0;
+            }
+            .user-avatar {
+                width: 44px;
+                height: 44px;
+                background: var(--luxury-pink-light);
+                color: var(--luxury-pink);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+                font-size: 18px;
+                flex-shrink: 0;
+                font-family: 'Inter', sans-serif;
+            }
+            .user-info {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .user-name {
+                font-weight: 600;
+                color: var(--text-dark);
+                font-size: 16px;
+                font-family: 'Inter', sans-serif;
+            }
+            .user-location {
+                color: var(--text-gray);
+                font-size: 14px;
+                font-family: 'Inter', sans-serif;
+            }
+            .testimonial-arrow {
+                background: #E5E5E5;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+                opacity: 0.8;
+            }
+            .testimonial-arrow:hover {
+                background: var(--luxury-pink);
+                color: white;
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            .testimonial-track {
+                display: flex;
+                gap: 24px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding-bottom: 8px;
+            }
+            .testimonial-track::-webkit-scrollbar {
+                display: none;
+            }
+            .testimonial-card {
+                flex: 0 0 320px;
+                scroll-snap-align: start;
+            }
+            @media (min-width: 1024px) {
+                .testimonial-card {
+                    flex: 0 0 calc(33.333% - 16px);
+                }
+            }
+        .testimonials-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .testimonials-subtext {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            font-family: 'Inter', sans-serif;
+        }
+        .testimonial-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: var(--luxury-pink);
+        }
+        .stars {
+            color: #F5B301;
+            font-size: 18px;
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+            justify-content: center;
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: #4B5563;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            font-family: 'Inter', sans-serif;
+        }
+        .testimonial-divider {
+            height: 1px;
+            background: var(--border-light);
+            margin: 20px 0;
+        }
+        .user-avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--luxury-pink-light);
+            color: var(--luxury-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+            flex-shrink: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .user-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+        .user-location {
+            color: var(--text-gray);
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+        }
+        .testimonial-arrow {
+            background: #E5E5E5;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        .testimonial-arrow:hover {
+            background: var(--luxury-pink);
+            color: white;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .testimonial-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 8px;
+        }
+        .testimonial-track::-webkit-scrollbar {
+            display: none;
+        }
+        .testimonial-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+        }
+        @media (min-width: 1024px) {
+            .testimonial-card {
+                flex: 0 0 calc(33.333% - 16px);
+            }
+        }
+        .service-icon-cont {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .service-desc {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .service-link {
+            color: var(--luxury-pink);
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .service-badge {
+            background: var(--luxury-pink-light);
+            color: var(--luxury-pink);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .services-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        .services-subtext {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- NAVIGATION -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
             <div>
-                <span class="text-xl font-bold tracking-widest uppercase serif">Pihu Tutorial</span>
-                <p class="text-[10px] tracking-[0.2em] uppercase opacity-60">Blouse Silai / Women&#39;s Custom Stitching</p>
+                <span class="text-base font-bold tracking-widest uppercase serif">Pihu Tutorial</span>
+                <p class="text-[9px] tracking-[0.2em] uppercase opacity-60">Blouse Silai / Women&#39;s Custom Stitching</p>
             </div>
-            <div class="hidden md:flex space-x-8 text-xs font-semibold uppercase tracking-wider">
+            <div class="hidden md:flex space-x-6 text-xs font-semibold uppercase tracking-wider">
                 <a href="#home" class="hover:text-brand-tan transition">Home</a>
                 <a href="#about" class="hover:text-brand-tan transition">About</a>
                 <a href="#services" class="hover:text-brand-tan transition">Services</a>
                 <a href="#portfolio" class="hover:text-brand-tan transition">Portfolio</a>
                 <a href="#contact" class="hover:text-brand-tan transition">Contact</a>
             </div>
-            <a href="#contact" class="bg-brand-tan text-white px-6 py-2.5 rounded text-sm font-semibold flex items-center gap-2 hover:opacity-90 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                Book Service
+            <a href="https://api.whatsapp.com/send?phone=8571983132&text=Hi!%20I%27m%20interested%20in%20booking%20blouse%20stitching%20service%20at%20Pihu%20Tutorial.%20Please%20share%20availability%20and%20rates." target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded text-xs font-semibold flex items-center gap-1.5 hover:opacity-90 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 01" />
+                Book WhatsApp
             </a>
         </div>
     </nav>
 
+
     <!-- HERO SECTION -->
-    <section id="home" class="relative h-[85vh] flex items-center overflow-hidden bg-black">
-        <img src="https://images.unsplash.com/photo-1612872087721-cee7e8866bf1?q=80&amp;w=2070" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Blouse Silai">
-        <div class="hero-overlay absolute inset-0"></div>
-        <div class="relative max-w-4xl mx-auto px-6 text-center text-white">
-            <p class="uppercase tracking-[0.3em] text-sm mb-4 font-light">Expert Blouse Stitching</p>
-            <h1 class="text-5xl md:text-7xl mb-8 serif leading-tight">Precision Blouse Silai &amp; Women&#39;s Blouse Designs with Expert Craftsmanship</h1>
-            <p class="text-lg md:text-xl mb-10 opacity-90 font-light max-w-2xl mx-auto">Discover the art of precision silai and expert blouse alterations. We transform your fabrics into beautiful blouses with care and our exclusive techniques.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <button class="bg-brand-tan px-10 py-4 rounded font-semibold text-sm uppercase tracking-widest hover:brightness-110 transition">WhatsApp Us</button>
-                <button class="border border-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-widest hover:bg-white hover:text-black transition">Contact Us</button>
+    <section id="home" class="py-16 lg:py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <!-- Left Content -->
+                <div class="lg:order-1">
+                    <div class="inline-block bg-brand-pink/10 border border-brand-pink/20 text-brand-pink px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-5">
+                        Expert Stitching Services
+                    </div>
+                    <h1 class="text-3xl lg:text-5xl font-bold mb-5 serif leading-tight">
+                        <span class="block text-brand-dark"><span class="text-brand-pink">Precision</span> Stitching &amp;</span>
+                        <span class="block">Expert Craftsmanship</span>
+                    </h1>
+                    <p class="text-base lg:text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
+                        Elevate your blouses, lehengas, and suits with our meticulous stitching services. Every detail crafted with precision, elegance, and timeless quality.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 mb-10">
+                        <a href="https://api.whatsapp.com/send?phone=8571983132&text=Hi! I&#39;d like to book stitching service." target="_blank" class="bg-brand-pink hover:bg-brand-pink/90 text-white px-8 py-4 rounded-xl font-semibold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                            Book Service
+                        </a>
+                        <button class="border-2 border-gray-200 hover:border-brand-tan px-8 py-4 rounded-xl font-semibold text-sm uppercase tracking-wider hover:bg-brand-light hover:shadow-md transition-all duration-300">
+                            Contact Us
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-2xl lg:text-3xl font-bold text-brand-dark mb-1">200+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Happy Clients</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl lg:text-3xl font-bold text-brand-dark mb-1">5+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl lg:text-3xl font-bold text-brand-dark mb-1">100%</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Image -->
+                <div class="relative lg:order-2">
+                    <img src="https://images.pexels.com/photos/33101418/pexels-photo-33101418.jpeg" alt="Premium Blouse Stitching" class="w-full h-80 lg:h-[480px] object-cover rounded-2xl shadow-xl">
+                    <div class="absolute -bottom-8 -right-8 lg:-bottom-10 lg:-right-10 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/50 max-w-xs">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-brand-pink to-brand-tan rounded-xl flex items-center justify-center shadow-md">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-dark">Quality Assured</h4>
+                                <p class="text-gray-600 text-xs">Premium Craftsmanship</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div class="rounded-lg overflow-hidden shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1589957194818-7d6d9a783285?q=80&amp;w=2070" alt="Blouse Tailor" class="w-full h-[500px] object-cover">
-            </div>
-            <div>
-                <p class="text-xs uppercase tracking-widest text-brand-tan mb-4 font-bold">About Us</p>
-                <h2 class="text-4xl mb-8 serif">Craftsmanship Meets Precision</h2>
-                <div class="space-y-6 text-gray-600 leading-relaxed font-light">
-                    <p>At Pihu Tutorial, we specialize in women&#39;s blouse silai and custom stitching. With years of experience, we&#39;ve built our reputation on quality and customer satisfaction.</p>
-                    <p>Our mission is to provide exceptional blouse services that bring your designs to life. We specialize in innovative silai techniques for perfect fit and durability.</p>
+    <section id="about" class="py-10 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <!-- Left: Visual Imagery -->
+            <div class="relative lg:order-1">
+                <img src="https://i.pinimg.com/1200x/91/83/eb/9183eb9c87a68c8bb89efe0ab539484b.jpg" alt="Premium embroidery hand stitching close-up from Pinterest" class="w-full h-[300px] lg:h-[380px] object-cover rounded-2xl shadow-xl">
+                <div class="absolute -bottom-6 -right-6 lg:-bottom-8 lg:-right-8 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-white/50 max-w-[200px]">
+                    <img src="https://images.unsplash.com/photo-1673786586360-19e8f8acb53f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Professional sewing machine tailoring process" class="w-full h-16 object-cover rounded-xl mb-2 shadow-md">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-gradient-to-br from-brand-pink to-brand-tan rounded-lg flex items-center justify-center shadow">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm serif text-brand-dark">Timeless Craft</h4>
+                            <p class="text-xs text-gray-600">Generations of Expertise</p>
+                        </div>
+                    </div>
                 </div>
-                <ul class="mt-8 space-y-4">
-                    <li class="flex items-center gap-3 text-sm"><span class="text-brand-tan">✔</span> Perfect blouse stitching every time</li>
-                    <li class="flex items-center gap-3 text-sm"><span class="text-brand-tan">✔</span> Custom neck &amp; sleeve designs</li>
-                    <li class="flex items-center gap-3 text-sm"><span class="text-brand-tan">✔</span> Timely delivery guaranteed</li>
-                </ul>
+            </div>
+
+            <!-- Right: Text Content -->
+            <div class="lg:order-2 space-y-5">
+                <div class="inline-block bg-[#FEE2E2] border border-[#EF4444]/30 text-[#EF4444] px-4 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider">
+                    Our Story
+                </div>
+                <h2 class="text-2xl lg:text-4xl font-bold serif leading-tight text-brand-dark">
+                    Crafting Excellence, One Stitch at a Time
+                </h2>
+                <div class="space-y-4 text-gray-600 leading-relaxed max-w-lg">
+                    <p class="text-sm font-medium">At Pihu Tutorial, we blend traditional Indian stitching artistry with modern tailoring precision. Specializing in blouses, lehengas, and suits.</p>
+                    <p class="text-sm">Our workshop brings years of expertise to every garment, using only the finest fabrics and meticulous hand-finishing techniques.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-gray-100">
+                    <div class="group p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-white/50 hover:shadow-lg hover:-translate-y-1 hover:bg-white transition-all duration-300 cursor-pointer">
+                        <div class="w-10 h-10 bg-gradient-to-br from-brand-pink to-brand-tan rounded-lg flex items-center justify-center mb-3 mx-auto shadow group-hover:scale-105 transition-transform">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                        </div>
+                        <h4 class="text-base font-bold mb-1 text-center serif">Expert Tailoring</h4>
+                        <p class="text-xs text-gray-500 text-center leading-relaxed">Precision in every stitch</p>
+                    </div>
+                    <div class="group p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-white/50 hover:shadow-lg hover:-translate-y-1 hover:bg-white transition-all duration-300 cursor-pointer">
+                        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-lg flex items-center justify-center mb-3 mx-auto shadow group-hover:scale-105 transition-transform">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-4V7m8 10v3m-8 4l-8-4m0 0l-8 4m8-4V7" />
+                            </svg>
+                        </div>
+                        <h4 class="text-base font-bold mb-1 text-center serif">Quality Materials</h4>
+                        <p class="text-xs text-gray-500 text-center leading-relaxed">Finest fabrics selected</p>
+                    </div>
+                    <div class="group p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-white/50 hover:shadow-lg hover:-translate-y-1 hover:bg-white transition-all duration-300 cursor-pointer">
+                        <div class="w-10 h-10 bg-gradient-to-br from-brand-tan to-gray-600 rounded-lg flex items-center justify-center mb-3 mx-auto shadow group-hover:scale-105 transition-transform">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-4 6h10" />
+                            </svg>
+                        </div>
+                        <h4 class="text-base font-bold mb-1 text-center serif">Perfect Fit</h4>
+                        <p class="text-xs text-gray-500 text-center leading-relaxed">Custom-tailored for you</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- SERVICES SECTION -->
-    <section id="services" class="py-24 bg-white">
+    <section id="services" class="py-14 bg-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-xs uppercase tracking-widest text-brand-tan mb-4 font-bold">Our Services</p>
-            <h2 class="text-4xl mb-4 serif">Blouse Stitching &amp; Silai Services</h2>
-            <p class="text-gray-500 mb-16 max-w-2xl mx-auto font-light">From simple blouse stitching to complex lehenga blouses, we handle every design with precision.</p>
-            
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="p-8 border border-gray-100 rounded-xl hover:shadow-xl transition group bg-brand-light">
-                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-tan transition">
-                        <svg class="w-6 h-6 text-brand-tan group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758L3 21m6-6L3 9m3.657-3.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-2.829 2.828a2 2 0 01-2.828 0L6.657 8.243a2 2 0 010-2.828z" /></svg>
+            <span class="service-badge text-xs">Our Services</span>
+            <h2 class="text-2xl lg:text-3xl font-bold serif text-[#1A1A1A] mt-4 mb-3">Specialized Stitching Services</h2>
+            <p class="text-sm text-gray-500 max-w-xl mx-auto mb-10">From intricate blouse designs to elegant lehengas, we offer comprehensive stitching solutions for all your traditional wear needs.</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 border border-gray-100 rounded-xl hover:shadow-lg transition group bg-brand-light">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mb-4 mx-auto group-hover:bg-brand-tan transition">
+                        <svg class="w-5 h-5 text-brand-tan group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
                     </div>
-                    <h3 class="text-xl mb-3 serif">Blouse Alterations</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Perfect fit adjustments - hemming, darting, sleeve modifications.</p>
+                    <h3 class="text-base font-bold mb-2 serif">Lehenga Stitching</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Designer lehenga stitching with heavy embroidery and perfect fitting.</p>
                 </div>
-                <div class="p-8 border border-gray-100 rounded-xl hover:shadow-xl transition group bg-brand-light">
-                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-tan transition">
-                        <svg class="w-6 h-6 text-brand-tan group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                <div class="p-6 border border-gray-100 rounded-xl hover:shadow-lg transition group bg-brand-light">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mb-4 mx-auto group-hover:bg-brand-tan transition">
+                        <svg class="w-5 h-5 text-brand-tan group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
                     </div>
-                    <h3 class="text-xl mb-3 serif">Blouse Stitching</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Custom blouse stitching from your fabric with perfect measurements.</p>
+                    <h3 class="text-base font-bold mb-2 serif">Neck Design</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Latest neck patterns and boat neck, U-neck, round neck designs.</p>
                 </div>
-                <div class="p-8 border border-gray-100 rounded-xl hover:shadow-xl transition group bg-brand-light">
-                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-tan transition">
-                        <svg class="w-6 h-6 text-brand-tan group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                <div class="p-6 border border-gray-100 rounded-xl hover:shadow-lg transition group bg-brand-light">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mb-4 mx-auto group-hover:bg-brand-tan transition">
+                        <svg class="w-5 h-5 text-brand-tan group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
                     </div>
-                    <h3 class="text-xl mb-3 serif">Neck Design</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Latest neck patterns and boat neck, U-neck, round neck designs.</p>
-                </div>
-                <div class="p-8 border border-gray-100 rounded-xl hover:shadow-xl transition group bg-brand-light">
-                    <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-tan transition">
-                        <svg class="w-6 h-6 text-brand-tan group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
-                    </div>
-                    <h3 class="text-xl mb-3 serif">Lehenga Blouse</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Heavy embroidery lehenga blouses and designer stitching.</p>
+                    <h3 class="text-base font-bold mb-2 serif">Blouse Stitching</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Custom blouse stitching from your fabric with perfect measurements.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <p class="text-xs uppercase tracking-widest text-brand-tan mb-4 font-bold">Our Blouse Work</p>
-            <h2 class="text-4xl serif">Blouse Portfolio Showcase</h2>
+    <!-- PORTFOLIO - Exquisite Blouse Designs Carousel -->
+    <section id="portfolio" class="py-14 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-10">
+            <div class="inline-block bg-luxury-pink-light text-luxury-pink px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 service-badge">
+                Our Work
+            </div>
+            <h2 class="text-2xl lg:text-3xl font-bold serif text-[#1A1A1A] mb-3">
+                Exquisite Blouse Designs
+            </h2>
+            <p class="text-sm text-gray-500 max-w-xl mx-auto leading-relaxed">
+                Explore our collection of beautifully crafted blouses featuring intricate embroidery, perfect fits, and stunning back designs.
+            </p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <img src="https://images.unsplash.com/photo-1549030337-dda86f5e9fbc?q=80&amp;w=1000" class="w-full h-64 object-cover rounded-lg hover:opacity-90 transition cursor-pointer" alt="Blouse 1">
-            <img src="https://images.unsplash.com/photo-1607733366302-4bfd4a48521d?q=80&amp;w=1000" class="w-full h-64 object-cover rounded-lg hover:opacity-90 transition cursor-pointer" alt="Blouse 2">
-            <img src="https://images.unsplash.com/photo-1588330794376-b94c3bbf884b?q=80&amp;w=1000" class="w-full h-64 object-cover rounded-lg hover:opacity-90 transition cursor-pointer" alt="Blouse 3">
-            <img src="https://images.unsplash.com/photo-1602764339886-6c3d209776f1?q=80&amp;w=1000" class="w-full h-64 object-cover rounded-lg hover:opacity-90 transition cursor-pointer" alt="Blouse 4">
-            <img src="https://images.unsplash.com/photo-1590408352806-5d4b5e5819e6?q=80&amp;w=1000" class="w-full h-64 object-cover rounded-lg hover:opacity-90 transition cursor-pointer" alt="Blouse 5">
-            <img src="https://images.unsplash.com/photo-1578287205450-e89d5a0d56cd?q=80&amp;w=1000" class="w-full h-64 object-cover rounded-lg hover:opacity-90 transition cursor-pointer" alt="Blouse 6">
+
+        <!-- Carousel Container -->
+        <div class="relative">
+            <!-- Arrows -->
+            <button id="carousel-prev" class="carousel-arrow left-0 -translate-y-1/2 top-1/2 hidden lg:block">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <button id="carousel-next" class="carousel-arrow right-0 -translate-y-1/2 top-1/2 hidden lg:block">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+
+            <!-- Carousel Track -->
+            <div id="carousel-track" class="carousel-track flex gap-6 snap-x snap-mandatory overflow-x-auto scrollbar-hide lg:scroll-smooth pb-8">
+                <!-- Card 1 -->
+                <div class="carousel-card flex-shrink-0 w-72 lg:w-80 h-72 lg:h-80 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100 hover:shadow-xl hover:border-luxury-pink/50">
+                    <img src="https://i.pinimg.com/control1/736x/06/e4/47/06e447550bc57e1226507591a9b847e5.jpg" alt="Blouse Design" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+                </div>
+
+                <!-- Card 2 -->
+                <div class="carousel-card flex-shrink-0 w-72 lg:w-80 h-72 lg:h-80 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100 hover:shadow-xl hover:border-luxury-pink/50">
+                    <img src="https://i.pinimg.com/control1/1200x/72/d4/91/72d491be48a7c8cf0febb350964aec09.jpg" alt="Blouse Design" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+                </div>
+
+                <!-- Card 3 -->
+                <div class="carousel-card flex-shrink-0 w-72 lg:w-80 h-72 lg:h-80 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100 hover:shadow-xl hover:border-luxury-pink/50">
+                    <img src="https://i.pinimg.com/control1/1200x/8e/74/9c/8e749c179a8ae57202ce7b741ff250f1.jpg" alt="Bridal Blouse Embroidery" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+                </div>
+
+                <!-- Card 4 -->
+                <div class="carousel-card flex-shrink-0 w-72 lg:w-80 h-72 lg:h-80 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100 hover:shadow-xl hover:border-luxury-pink/50">
+                    <img src="https://i.pinimg.com/736x/66/a5/14/66a51409cfcb790d4c2879ae82fe6d80.jpg" alt="Elegant Back Neck Design" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+                </div>
+
+                <!-- Card 5 -->
+                <div class="carousel-card flex-shrink-0 w-72 lg:w-80 h-72 lg:h-80 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100 hover:shadow-xl hover:border-luxury-pink/50">
+                    <img src="https://i.pinimg.com/control1/1200x/d8/a5/90/d8a59082daa75f2877a430498db22fe5.jpg" alt="Stunning Lehenga Design" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+                </div>
+
+                <!-- Card 6 -->
+                <div class="carousel-card flex-shrink-0 w-72 lg:w-80 h-72 lg:h-80 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100 hover:shadow-xl hover:border-luxury-pink/50">
+                    <img src="https://i.pinimg.com/736x/30/2b/98/302b98cadc1ffc535c2e145d55dcaf6d.jpg" alt="Blouse Design" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+                </div>
+
+                <!-- Card 7 -->
+                <div class="carousel-card flex-shrink-0 w-72 lg:w-80 h-72 lg:h-80 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100 hover:shadow-xl hover:border-luxury-pink/50">
+                    <img src="https://i.pinimg.com/736x/c1/fb/19/c1fb19e1e55e1889f061d7c54fa29797.jpg" alt="Blouse Design" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+                </div>
+
+                <!-- Card 8 -->
+                <div class="carousel-card flex-shrink-0 w-72 lg:w-80 h-72 lg:h-80 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-100 hover:shadow-xl hover:border-luxury-pink/50">
+                    <img src="https://i.pinimg.com/control1/1200x/aa/3d/80/aa3d801db79af647d3c0010499cc07c1.jpg" alt="Stunning Blouse Back Design" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+<style>
+            .carousel-arrow {
+                position: absolute;
+                background-color: #E5E5E5;
+                padding: 0.75rem;
+                border-radius: 9999px;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+                z-index: 10;
+                opacity: 0.75;
+                transition: all 0.3s ease;
+            }
+            .carousel-arrow:hover {
+                background-color: var(--luxury-pink);
+                color: white;
+                opacity: 1;
+            }
+            .carousel-track {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .carousel-track::-webkit-scrollbar {
+                display: none;
+            }
+            .carousel-card {
+                scroll-snap-align: start;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-14 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-10">
+            <span class="testimonial-badge text-xs">Testimonials</span>
+            <h2 class="text-2xl lg:text-3xl font-bold serif text-[#1A1A1A] mt-4 mb-3">What Our Clients Say</h2>
+            <p class="text-sm text-gray-500 max-w-xl mx-auto">Don&#x27;t just take our word for it – hear from our satisfied customers who experienced our exceptional craftsmanship.</p>
+        </div>
+
+        <div class="relative">
+            <!-- Arrows -->
+            <button id="testimonial-prev" class="testimonial-arrow absolute left-0 -translate-y-1/2 top-1/2 hidden lg:block z-10">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <button id="testimonial-next" class="testimonial-arrow absolute right-0 -translate-y-1/2 top-1/2 hidden lg:block z-10">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+
+            <!-- Track -->
+            <div id="testimonial-track" class="testimonial-track">
+                <!-- Card 1 -->
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The blouse stitching was absolutely perfect! The fit was immaculate and the attention to detail exceeded my expectations. Highly recommend Pihu Tutorial for all your stitching needs."</p>
+                    <div class="testimonial-divider"></div>
+                    <div class="user-info">
+                        <div class="user-avatar">P</div>
+                        <div>
+                            <div class="user-name">Priya Sharma</div>
+                            <div class="user-location">Rewari, Haryana</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"I got my wedding lehenga blouse stitched here and it turned out stunning! The craftsmanship is top-notch. They truly understand what the customer wants and deliver beyond expectations."</p>
+                    <div class="testimonial-divider"></div>
+                    <div class="user-info">
+                        <div class="user-avatar">A</div>
+                        <div>
+                            <div class="user-name">Anita Verma</div>
+                            <div class="user-location">Rewari, Haryana</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Excellent work and professional service! My suit was stitched perfectly with beautiful embroidery. The quality of work is outstanding and the rates are very reasonable. Will definitely return."</p>
+                    <div class="testimonial-divider"></div>
+                    <div class="user-info">
+                        <div class="user-avatar">M</div>
+                        <div>
+                            <div class="user-name">Meera Patel</div>
+                            <div class="user-location">Rewari, Haryana</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 bg-brand-light">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-            <div>
-                <h2 class="text-4xl mb-8 serif">Book Blouse Stitching Today</h2>
-                <div class="space-y-8">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-white p-3 rounded-lg shadow-sm text-brand-tan">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        </div>
-                        <div>
-                            <p class="font-bold">Address</p>
-                            <p class="text-gray-500 text-sm">123 Fashion Street, Downtown, City - 400001</p>
-                        </div>
+    <section id="contact" class="py-14 bg-[#FAF8F5]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Left: Contact Details -->
+                <div class="space-y-6">
+                    <div class="inline-block bg-[#FDECEF] text-[#E86A7A] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        Get In Touch
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="bg-white p-3 rounded-lg shadow-sm text-brand-tan">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <h2 class="text-2xl lg:text-3xl font-bold serif text-[#1A1A1A] leading-tight">
+                        Book Your Appointment Today
+                    </h2>
+                    <p class="text-sm text-gray-500 leading-relaxed max-w-md">
+                        Ready to experience exceptional stitching services? Contact us via WhatsApp, phone, or fill out the form below. We're here to bring your vision to life.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-11 h-11 bg-[#FDECEF] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-[#E86A7A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-[#1A1A1A] mb-0.5">Phone</p>
+                                <p class="text-sm text-gray-600">+91 85719 83132</p>
+                                <a href="tel:+918571983132" class="text-[#E86A7A] text-xs font-medium hover:underline mt-0.5 inline-block">Click to call</a>
+                            </div>
                         </div>
-                        <div>
-                            <p class="font-bold">Email</p>
-                            <p class="text-gray-500 text-sm">info@pihututorial.com</p>
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-11 h-11 bg-[#FDECEF] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-[#E86A7A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-[#1A1A1A] mb-0.5">Email</p>
+                                <p class="text-sm text-gray-600">info@pihututorial.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-11 h-11 bg-[#FDECEF] rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-[#E86A7A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-[#1A1A1A] mb-0.5">Location</p>
+                                <p class="text-sm text-gray-600">Antriksh Tower 3, BMG Elegant City,<br>Rewari, Haryana, 123401</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-12 bg-white p-6 rounded-xl border border-gray-100">
-                    <p class="font-bold mb-2">Quick Blouse Enquiry?</p>
-                    <p class="text-sm text-gray-500 mb-4">WhatsApp us for instant blouse design consultation.</p>
-                    <button class="w-full bg-brand-tan text-white py-3 rounded font-bold uppercase text-xs tracking-widest">WhatsApp Now</button>
+
+                <!-- Right: Contact Form -->
+                <div class="bg-white p-6 lg:p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-50">
+                    <h3 class="text-xl font-bold serif text-[#1A1A1A] mb-5">Send Us a Message</h3>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label class="text-xs font-semibold text-[#1A1A1A] block mb-1.5">Your Name</label>
+                            <input type="text" id="contactName" placeholder="Enter your full name" class="w-full px-4 py-3 bg-[#FAF8F5] rounded-lg border border-gray-100 focus:border-[#E86A7A] focus:ring-2 focus:ring-[#E86A7A]/20 outline-none transition text-sm text-gray-700 placeholder-gray-400">
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-[#1A1A1A] block mb-1.5">Phone Number</label>
+                            <input type="tel" id="contactPhone" placeholder="Enter your phone number" class="w-full px-4 py-3 bg-[#FAF8F5] rounded-lg border border-gray-100 focus:border-[#E86A7A] focus:ring-2 focus:ring-[#E86A7A]/20 outline-none transition text-sm text-gray-700 placeholder-gray-400">
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-[#1A1A1A] block mb-1.5">Service Type</label>
+                            <select id="contactService" class="w-full px-4 py-3 bg-[#FAF8F5] rounded-lg border border-gray-100 focus:border-[#E86A7A] focus:ring-2 focus:ring-[#E86A7A]/20 outline-none transition text-sm text-gray-700 appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="Blouse Stitching">Blouse Stitching</option>
+                                <option value="Lehenga Stitching">Lehenga Stitching</option>
+                                <option value="Suit Stitching">Suit Stitching</option>
+                                <option value="Alteration">Alteration</option>
+                                <option value="Bridal Wear">Bridal Wear</option>
+                                <option value="Custom Design">Custom Design</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-semibold text-[#1A1A1A] block mb-1.5">Message</label>
+                            <textarea id="contactMessage" rows="3" placeholder="Tell us about your requirements…" class="w-full px-4 py-3 bg-[#FAF8F5] rounded-lg border border-gray-100 focus:border-[#E86A7A] focus:ring-2 focus:ring-[#E86A7A]/20 outline-none transition text-sm text-gray-700 placeholder-gray-400 resize-none"></textarea>
+                        </div>
+                        <button type="button" id="contactSubmitBtn" class="w-full bg-[#E86A7A] hover:bg-[#d55a6a] text-white py-3 rounded-lg font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+                            Send Message
+                        </button>
+                        <p class="text-center text-xs text-gray-400 mt-2">Or reach us directly on <a href="https://api.whatsapp.com/send?phone=8571983132" target="_blank" class="text-[#E86A7A] font-medium hover:underline">WhatsApp</a></p>
+                    </form>
                 </div>
-            </div>
-            
-            <div class="bg-white p-10 rounded-2xl shadow-xl border border-gray-50">
-                <h3 class="text-2xl mb-6 serif">Get Custom Blouse Quote</h3>
-                <form class="space-y-4">
-                    <div>
-                        <label class="text-xs font-bold uppercase tracking-wider block mb-2">Name *</label>
-                        <input type="text" placeholder="Enter your name" class="w-full p-4 bg-brand-light rounded-lg border-none focus:ring-2 focus:ring-brand-tan outline-none transition">
-                    </div>
-                    <div>
-                        <label class="text-xs font-bold uppercase tracking-wider block mb-2">Phone *</label>
-                        <input type="tel" placeholder="+91 98765 43210" class="w-full p-4 bg-brand-light rounded-lg border-none focus:ring-2 focus:ring-brand-tan outline-none transition">
-                    </div>
-                    <div>
-                        <label class="text-xs font-bold uppercase tracking-wider block mb-2">Blouse Type *</label>
-                        <input type="text" placeholder="e.g., Lehenga Blouse, Salwar Blouse Silai" class="w-full p-4 bg-brand-light rounded-lg border-none focus:ring-2 focus:ring-brand-tan outline-none transition">
-                    </div>
-                    <div>
-                        <label class="text-xs font-bold uppercase tracking-wider block mb-2">Requirements</label>
-                        <textarea rows="4" placeholder="Neck design, sleeve style, fabric details..." class="w-full p-4 bg-brand-light rounded-lg border-none focus:ring-2 focus:ring-brand-tan outline-none transition"></textarea>
-                    </div>
-                    <button class="w-full bg-brand-tan text-white py-4 rounded-lg font-bold uppercase tracking-widest hover:brightness-105 transition">Get Quote</button>
-                </form>
             </div>
         </div>
     </section>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://api.whatsapp.com/send?phone=8571983132&amp;text=Hi!%20I%27m%20interested%20in%20blouse%20silai.%20Please%20share%20portfolio%20and%20rates." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-16 h-16 flex items-center justify-center text-xl">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-.999.542-1.831 1.523-2.433.981-.602 2.297-.559 3.834.143.883.403 1.486.994 1.935 1.641.448.646.634 1.427.631 2.206-.01 1.255-.772 2.381-1.838 2.884l-.393.213 3.741-.982-.998 3.648.361.214c.649.365 1.39.609 2.191.751.801.142 1.518.137 2.127-.007 1.433-.36 2.48-1.704 2.595-3.264.116-.955.065-1.833-.278-2.577-.343-.743-.995-1.335-1.982-1.736-.987-.401-2.261-.147-3.134.732-.873 0.879-1.225 2.098-1.004 3.299.221.12 1 1.974 2.143 2.523z"/>
+        </svg>
+    </a>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Contact Form WhatsApp Submit
+        const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+        if (contactSubmitBtn) {
+            contactSubmitBtn.addEventListener('click', function() {
+                const name = document.getElementById('contactName')?.value.trim() || 'Not provided';
+                const phone = document.getElementById('contactPhone')?.value.trim() || 'Not provided';
+                const service = document.getElementById('contactService')?.value || 'Not selected';
+                const message = document.getElementById('contactMessage')?.value.trim() || 'No message';
+
+                const encodedMessage = encodeURIComponent(
+                    `Hi Pihu Tutorial!%0A%0A` +
+                    `Name: ${name}%0A` +
+                    `Phone: ${phone}%0A` +
+                    `Service: ${service}%0A%0A` +
+                    `Message: ${message}`
+                );
+                const url = `https://api.whatsapp.com/send?phone=8571983132&text=${encodedMessage}`;
+                window.open(url, '_blank');
+            });
+        }
+
+        // Blouse Carousel Functionality
+        const track = document.getElementById('carousel-track');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        const cardWidth = 384; // lg:w-96 = 384px + gap 24px = ~408, approx viewport/4
+
+        if (track && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                track.scrollBy({ left: -cardWidth * 4, behavior: 'smooth' });
+            });
+            nextBtn.addEventListener('click', () => {
+                track.scrollBy({ left: cardWidth * 4, behavior: 'smooth' });
+            });
+        }
+
+        // Testimonials Carousel Functionality
+        const testimonialTrack = document.getElementById('testimonial-track');
+        const testimonialPrevBtn = document.getElementById('testimonial-prev');
+        const testimonialNextBtn = document.getElementById('testimonial-next');
+        const testimonialCardWidth = 350; // card 320px + gap 24px/2
+
+        if (testimonialTrack && testimonialPrevBtn && testimonialNextBtn) {
+            testimonialPrevBtn.addEventListener('click', () => {
+                testimonialTrack.scrollBy({ left: -testimonialCardWidth, behavior: 'smooth' });
+            });
+            testimonialNextBtn.addEventListener('click', () => {
+                testimonialTrack.scrollBy({ left: testimonialCardWidth, behavior: 'smooth' });
+            });
+        }
+    });
+    </script>
+
     <!-- FOOTER -->
-    <footer class="bg-stone-900 text-white py-16 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 border-b border-white/10 pb-12 mb-8">
+    <footer class="bg-stone-900 text-white py-10 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 border-b border-white/10 pb-8 mb-6">
             <div>
-                <span class="text-xl serif tracking-widest uppercase">Pihu Tutorial</span>
-                <p class="mt-4 text-gray-400 text-sm leading-relaxed max-w-xs">Premium blouse silai services inspired by PihuTutorial YouTube channel. Expert women&#39;s blouse stitching and custom designs.</p>
+                <span class="text-base serif tracking-widest uppercase font-bold">Pihu Tutorial</span>
+                <p class="mt-3 text-gray-400 text-xs leading-relaxed max-w-xs">Premium blouse silai services inspired by PihuTutorial YouTube channel. Expert women&#39;s blouse stitching and custom designs.</p>
             </div>
-            <div class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-2 gap-6">
                 <div>
-                    <h4 class="font-bold mb-4 text-sm uppercase tracking-widest">Quick Links</h4>
-                    <ul class="text-gray-400 text-sm space-y-2">
+                    <h4 class="font-bold mb-3 text-xs uppercase tracking-widest">Quick Links</h4>
+                    <ul class="text-gray-400 text-xs space-y-1.5">
                         <li><a href="#" class="hover:text-white">Home</a></li>
                         <li><a href="#" class="hover:text-white">About</a></li>
                         <li><a href="#" class="hover:text-white">Services</a></li>
@@ -212,17 +903,17 @@ body { font-family: &#39;Inter&#39;, sans-serif; background-color: var(--brand-l
                 </div>
             </div>
             <div>
-                <h4 class="font-bold mb-4 text-sm uppercase tracking-widest">Follow Us</h4>
-                <p class="text-gray-400 text-sm mb-4">Watch our blouse tutorials:</p>
-                <a href="https://www.youtube.com/@PihuTutorial" target="_blank" class="inline-flex items-center gap-2 text-brand-tan hover:text-white transition text-sm">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <h4 class="font-bold mb-3 text-xs uppercase tracking-widest">Follow Us</h4>
+                <p class="text-gray-400 text-xs mb-3">Watch our blouse tutorials:</p>
+                <a href="https://www.youtube.com/@PihuTutorial" target="_blank" class="inline-flex items-center gap-2 text-brand-tan hover:text-white transition text-xs">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     YouTube @PihuTutorial
                 </a>
             </div>
         </div>
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
             <p>© 2024 Pihu Tutorial. All rights reserved.</p>
-            <p class="mt-4 md:mt-0">Specializing in women&#39;s blouse silai designs ♡</p>
+            <p class="mt-2 md:mt-0">Specializing in women&#39;s blouse silai designs ♡</p>
         </div>
     </footer>
 
